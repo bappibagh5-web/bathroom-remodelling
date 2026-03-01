@@ -57,10 +57,10 @@ const faq = [
 
 function App() {
   useEffect(() => {
-    document.title = 'HydroCraft Studio — Ultra-Modern Bathroom Remodeling'
+    document.title = 'Appliance Doctor Pro — Ultra-Modern Bathroom Remodeling'
     const metaDescription = document.querySelector('meta[name="description"]') ?? document.createElement('meta')
     metaDescription.name = 'description'
-    metaDescription.content = 'HydroCraft Studio crafts ultra-modern bathroom remodels with spa-grade materials, curated lighting, and concierge-level service.'
+    metaDescription.content = 'Appliance Doctor Pro crafts ultra-modern bathroom remodels with spa-grade materials, curated lighting, and concierge-level service.'
     if (!metaDescription.parentNode) {
       document.head.appendChild(metaDescription)
     }
@@ -72,7 +72,7 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950" />
         <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1800&q=80')", backgroundSize: 'cover', backgroundPosition: 'center' }} />
         <header className="relative max-w-6xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
-          <div className="text-2xl font-semibold tracking-wide">HydroCraft Studio</div>
+          <div className="text-2xl font-semibold tracking-wide">Appliance Doctor Pro</div>
           <nav className="hidden md:flex items-center gap-6 text-sm uppercase tracking-[0.2em] text-white/70">
             <a href="#services" className="hover:text-white">Services</a>
             <a href="#before-after" className="hover:text-white">Work</a>
@@ -121,7 +121,7 @@ function App() {
               <input placeholder="Phone" className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3" />
               <textarea rows={4} placeholder="Project vision" className="w-full rounded-2xl border border-white/20 bg-white/10 px-4 py-3" />
               <label className="flex items-start gap-2 text-sm text-white/70">
-                <input type="checkbox" className="mt-1" /> I agree to receive scheduling updates from HydroCraft Studio.
+                <input type="checkbox" className="mt-1" /> I agree to receive scheduling updates from Appliance Doctor Pro.
               </label>
               <button className="w-full rounded-2xl bg-amber-400 text-slate-900 font-semibold py-3 shadow-lg shadow-amber-400/30 hover:-translate-y-0.5 transition">
                 Secure my estimate
@@ -176,7 +176,7 @@ function App() {
           <div className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 flex flex-col gap-4">
             <p className="uppercase text-xs tracking-[0.3em] text-white/60">Why choose us</p>
             <h2 className="text-4xl font-display">Concierge attention. End-to-end clarity.</h2>
-            <p className="text-white/80">We built HydroCraft Studio to feel more like hiring architects than contractors. You get one point of contact, transparent budget milestones, and a detailed turnover kit.</p>
+            <p className="text-white/80">We built Appliance Doctor Pro to feel more like hiring architects than contractors. You get one point of contact, transparent budget milestones, and a detailed turnover kit.</p>
             <ul className="space-y-3 text-white">
               {pillars.map((pillar) => (
                 <li key={pillar} className="flex items-start gap-3">
@@ -245,7 +245,7 @@ function App() {
       </main>
 
       <footer className="bg-slate-950 text-white/70 text-sm text-center py-6">
-        © {new Date().getFullYear()} HydroCraft Studio — Crafted in Dhaka.
+        © {new Date().getFullYear()} Appliance Doctor Pro — Crafted in Dhaka.
       </footer>
     </div>
   )
