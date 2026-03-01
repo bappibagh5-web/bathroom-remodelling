@@ -6,15 +6,21 @@ const phone = '(904) 664-5357'
 const services = [
   {
     title: 'Signature Spa Remodels',
-    body: 'Full-space redesign with mood lighting, bespoke stone, and integrated smart controls.'
+    body: 'Full-space redesign with mood lighting, bespoke stone, and integrated smart controls.',
+    icon: '✨',
+    image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80'
   },
   {
     title: 'Wet Room Conversions',
-    body: 'Curbless layouts, linear drains, and floor-to-ceiling tile engineered for effortless maintenance.'
+    body: 'Curbless layouts, linear drains, and floor-to-ceiling tile engineered for effortless maintenance.',
+    icon: '💧',
+    image: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=1400&q=80'
   },
   {
     title: 'Precision Upgrades',
-    body: 'Vanities, fixtures, mirrors, and storage curated to refresh your space without full demo.'
+    body: 'Vanities, fixtures, mirrors, and storage curated to refresh your space without full demo.',
+    icon: '🛠️',
+    image: 'https://images.unsplash.com/photo-1461151304267-38535e780c79?auto=format&fit=crop&w=1400&q=80'
   }
 ]
 
@@ -174,12 +180,37 @@ function App() {
             <h2 className="text-4xl font-display">Architecture-grade craft for every scope.</h2>
             <p className="text-slate-500">Flexible build models from turnkey spa suites to targeted upgrades.</p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {services.map((service) => (
-              <article key={service.title} className="rounded-3xl border border-slate-100 p-6 shadow-lg hover:-translate-y-1 transition">
-                <div className="text-3xl mb-4">✨</div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-slate-500">{service.body}</p>
+          <div className="grid gap-8 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <article
+                key={service.title}
+                className="group relative rounded-[32px] overflow-hidden bg-white shadow-[0_20px_60px_rgba(15,23,42,0.1)] border border-slate-100"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={`${service.title} inspiration`}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-80 mix-blend-multiply" />
+                  <div className="absolute left-6 bottom-6 flex items-center gap-3 text-white">
+                    <span className="text-3xl drop-shadow-xl">{service.icon}</span>
+                    <span className="text-sm uppercase tracking-[0.4em] text-white/80">0{index + 1}</span>
+                  </div>
+                </div>
+                <div className="p-8 space-y-4">
+                  <div className="flex items-center gap-3 text-slate-500 text-sm">
+                    <span className="h-2 w-2 rounded-full bg-slate-900/40" />
+                    Atelier-grade detailing
+                  </div>
+                  <h3 className="text-2xl font-display text-slate-900">{service.title}</h3>
+                  <p className="text-slate-500 leading-relaxed">{service.body}</p>
+                  <button className="inline-flex items-center gap-2 text-slate-900 font-semibold tracking-wide uppercase text-xs group-hover:gap-3 transition-all">
+                    Explore process
+                    <span className="inline-block h-[1px] w-6 bg-slate-900" />
+                  </button>
+                </div>
+                <div className="absolute inset-0 rounded-[32px] border border-transparent group-hover:border-slate-900/20 group-hover:-translate-y-2 group-hover:-translate-x-1 transition duration-500 pointer-events-none" />
               </article>
             ))}
           </div>
