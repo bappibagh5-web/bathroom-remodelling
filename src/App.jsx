@@ -24,12 +24,6 @@ const beforeAfter = [
     detail: 'Floating tub | bronze fixtures',
     before: 'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&fit=crop&w=1800&q=80',
     after: 'https://images.unsplash.com/photo-1505576391880-b3f9d713dcf2?auto=format&fit=crop&w=1800&q=80'
-  },
-  {
-    title: 'Garden-Level Retreat',
-    detail: 'Microcement shell | biophilic lighting',
-    before: 'https://images.unsplash.com/photo-1508979827776-e53a0d614fb0?auto=format&fit=crop&w=1800&q=80',
-    after: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1800&q=80'
   }
 ]
 
