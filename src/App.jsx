@@ -335,6 +335,36 @@ function App() {
           </div>
         </section>
 
+        <section className="max-w-6xl mx-auto px-6 pb-16 grid gap-10 lg:grid-cols-[1fr,1.1fr] items-center">
+          <div className="space-y-4">
+            <p className="uppercase text-xs tracking-[0.3em] text-slate-500">Service Area</p>
+            <h2 className="text-4xl font-display">Proudly serving Florida.</h2>
+            <p className="text-slate-500">
+              High-touch remodels across Jacksonville, Orlando, Tampa, St. Augustine, and Palm Coast—anywhere the Atlantic breeze meets ambitious homeowners.
+            </p>
+            <ul className="grid sm:grid-cols-2 gap-3 text-sm text-slate-600">
+              {['Jacksonville Beach', 'Amelia Island', 'Orlando Metro', 'Winter Park', 'Tampa Bay', 'St. Petersburg'].map((city) => (
+                <li key={city} className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                  {city}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-[32px] overflow-hidden shadow-2xl border border-slate-200 h-[420px]">
+            <iframe
+              title="Florida service map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11454148.076704027!2d-88.10405591877795!3d27.76854175158202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c23b4f1c3c1647%3A0x5c7c0c5b4f5198!2sFlorida%2C%20USA!5e0!3m2!1sen!2sus!4v1709399999999!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </section>
+
         <section className="max-w-5xl mx-auto px-6 pb-16">
           <div className="rounded-[32px] bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 text-white p-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
