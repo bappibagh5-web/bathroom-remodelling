@@ -40,6 +40,33 @@ const pillars = [
   'Post-project detailing & care kit'
 ]
 
+const testimonials = [
+  {
+    name: 'Zara Rahman',
+    location: 'Gulshan Penthouse',
+    quote: 'Appliance Doctor Pro choreographed every trade like a film crew. We went from dated tile to a chromed-out spa in 18 days.',
+    avatar: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    name: 'Hasan & Misha',
+    location: 'Banani Duplex',
+    quote: 'They sent sunrise photos every day so we could see progress while traveling. The aromatherapy steam zone is unreal.',
+    avatar: 'https://images.unsplash.com/photo-1525130413817-d45c1d127c42?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    name: 'Farhana Islam',
+    location: 'Dhanmondi Heritage Home',
+    quote: 'Every detail is engineered—heated terrazzo, hidden storage, chromatherapy lighting. It feels like a boutique hotel.',
+    avatar: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=400&q=80'
+  },
+  {
+    name: 'Arif Chowdhury',
+    location: 'Baridhara Residence',
+    quote: 'They remodeled while we lived onsite by staging the work and sealing dust zones. Schedule and budget were transparent.',
+    avatar: 'https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=400&q=80'
+  }
+]
+
 const faq = [
   {
     q: 'How long does a remodel take?',
@@ -266,13 +293,30 @@ function App() {
         </section>
 
         <section id="testimonials" className="bg-slate-900 text-white py-16">
-          <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
-            <p className="text-2xl">⭐⭐⭐⭐⭐</p>
-            <h2 className="text-4xl font-display">Clients say the calm lasts long after we leave.</h2>
-            <p className="text-white/70 text-lg">
-              “From demolition to daily updates, HydroCraft made a major remodel feel effortless. The heated terrazzo floor and aromatherapy steam shower changed our mornings.”
-            </p>
-            <div className="text-white/60">— Hasan & Misha, Banani Penthouse</div>
+          <div className="max-w-6xl mx-auto px-6 space-y-12">
+            <div className="text-center space-y-3">
+              <p className="uppercase text-xs tracking-[0.3em] text-white/60">Testimonials</p>
+              <h2 className="text-4xl font-display">Clients say the calm lasts long after we leave.</h2>
+              <p className="text-white/60 max-w-3xl mx-auto">Concierge updates, dust-free builds, and spa-grade finishes earn us five-star reviews across Dhaka.</p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {testimonials.map((story) => (
+                <article
+                  key={story.name}
+                  className="group rounded-[32px] border border-white/10 bg-white/5 p-8 backdrop-blur shadow-[0_20px_60px_rgba(15,23,42,0.35)] transition hover:-translate-y-1"
+                >
+                  <div className="flex items-center gap-4 mb-6">
+                    <img src={story.avatar} alt={story.name} className="h-16 w-16 rounded-2xl object-cover" />
+                    <div>
+                      <p className="font-semibold text-lg">{story.name}</p>
+                      <p className="text-white/60 text-sm">{story.location}</p>
+                    </div>
+                    <div className="ml-auto text-amber-300 text-lg">★★★★★</div>
+                  </div>
+                  <p className="text-white/80 leading-relaxed">“{story.quote}”</p>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
