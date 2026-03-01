@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 const phone = '(904) 664-5357'
@@ -21,15 +21,15 @@ const services = [
 const beforeAfter = [
   {
     title: 'Skyline Ensuite',
-    detail: 'Floating tub | bronze fixtures'
+    detail: 'Floating tub | bronze fixtures',
+    before: 'https://images.unsplash.com/photo-1449247709967-d4461a6a6103?auto=format&fit=crop&w=1800&q=80',
+    after: 'https://images.unsplash.com/photo-1505576391880-b3f9d713dcf2?auto=format&fit=crop&w=1800&q=80'
   },
   {
     title: 'Garden-Level Retreat',
-    detail: 'Microcement shell | biophilic lighting'
-  },
-  {
-    title: 'City Loft Bath',
-    detail: 'Matte black grid | terrazzo floor'
+    detail: 'Microcement shell | biophilic lighting',
+    before: 'https://images.unsplash.com/photo-1508979827776-e53a0d614fb0?auto=format&fit=crop&w=1800&q=80',
+    after: 'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1800&q=80'
   }
 ]
 
@@ -54,6 +54,48 @@ const faq = [
     a: 'We stand behind every install with a 5-year workmanship warranty plus manufacturer guarantees.'
   }
 ]
+
+function BeforeAfterCard({ project }) {
+  const [slider, setSlider] = useState(50)
+
+  return (
+    <article className="rounded-[32px] overflow-hidden shadow-2xl border border-white/10 bg-slate-900/70 backdrop-blur">
+      <div className="relative h-[420px]">
+        <img src={project.after} alt={`${project.title} after remodel`} className="absolute inset-0 h-full w-full object-cover" />
+        <img
+          src={project.before}
+          alt={`${project.title} before remodel`}
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ clipPath: `inset(0 ${100 - slider}% 0 0)` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[3px] bg-white/70" style={{ left: `${slider}%` }}>
+          <div className="absolute -left-3 top-1/2 -translate-y-1/2 flex flex-col items-center gap-2 text-[10px] font-semibold tracking-[0.3em] text-white/80">
+            <span className="px-2 py-1 rounded-full bg-white/20">BEFORE</span>
+            <span className="px-2 py-1 rounded-full bg-white/20">AFTER</span>
+          </div>
+        </div>
+        <div className="absolute bottom-4 left-4 right-4 flex items-center gap-4">
+          <span className="text-xs uppercase tracking-[0.3em] text-white/70">Slide</span>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={slider}
+            onChange={(event) => setSlider(parseInt(event.target.value, 10))}
+            className="w-full accent-white/80"
+            aria-label={`Reveal before and after for ${project.title}`}
+          />
+        </div>
+      </div>
+      <div className="p-8 text-white">
+        <p className="text-xs uppercase tracking-[0.3em] text-white/50">Before / After</p>
+        <h3 className="text-2xl font-display mt-2">{project.title}</h3>
+        <p className="text-white/70 mt-2">{project.detail}</p>
+      </div>
+    </article>
+  )
+}
 
 function App() {
   useEffect(() => {
@@ -150,23 +192,17 @@ function App() {
         </section>
 
         <section id="before-after" className="bg-slate-100 py-16">
-          <div className="max-w-6xl mx-auto px-6 space-y-8">
+          <div className="max-w-6xl mx-auto px-6 space-y-10">
             <div className="flex flex-col gap-4">
               <p className="uppercase text-xs tracking-[0.3em] text-slate-500">Before / After</p>
               <h2 className="text-4xl font-display">Transformation stories.</h2>
+              <p className="text-slate-500 max-w-3xl">
+                Slide across the timeline to see how our team reimagines light, texture, and flow. Each story captures the exact moment a tired bath becomes a private sanctuary.
+              </p>
             </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {beforeAfter.map((item, index) => (
-                <div key={item.title} className="group rounded-3xl overflow-hidden shadow-xl">
-                  <div
-                    className="h-64 bg-cover bg-center group-hover:scale-[1.03] transition duration-500"
-                    style={{ backgroundImage: `url('https://picsum.photos/seed/bath${index + 1}/600/800')` }}
-                  />
-                  <div className="bg-white p-5">
-                    <h3 className="text-xl font-semibold">{item.title}</h3>
-                    <p className="text-slate-500">{item.detail}</p>
-                  </div>
-                </div>
+            <div className="space-y-8">
+              {beforeAfter.map((project) => (
+                <BeforeAfterCard key={project.title} project={project} />
               ))}
             </div>
           </div>
